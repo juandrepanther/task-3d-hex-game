@@ -1,0 +1,25 @@
+#gameboard {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hex-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: -60px;
+}
+
+.hexagon {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 115.47px;
+  background-color: #ccc;
+  margin: 0 10px 50px 10px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
