@@ -30,7 +30,9 @@ function Hex({ id }: Hexagon) {
         styleHandler();
       }}
       className={`hexagon ${isSelected}`}
-    ></div>
+    >
+      {id}
+    </div>
   );
 }
 

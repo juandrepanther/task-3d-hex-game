@@ -1,4 +1,8 @@
-import { IPlayer_reducer, ISteps } from "./../../types";
+import {
+  IPlayer_reducer,
+  ISteps,
+  IUpdateCurrentStepPlayer1,
+} from "./../../types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
@@ -13,6 +17,19 @@ export const player1Reducer = createSlice({
     setStepPlayer1: (state, action: PayloadAction<ISteps>) => {
       state.steps.push(action.payload);
     },
+
+    updateCurrentStepPlayer1: (
+      state,
+      action: PayloadAction<IUpdateCurrentStepPlayer1>
+    ) => {
+      const { id, connectedSteps } = action.payload;
+
+      const currentStepIndex = state.steps.findIndex((step) => step.id === id);
+      if (currentStepIndex !== -1) {
+        state.steps[currentStepIndex].connections += connectedSteps;
+      }
+    },
+
     updateStepsPlayer1: (state, action: PayloadAction<ISteps[]>) => {
       const receivedModifiedSteps = action.payload;
 
@@ -32,7 +49,8 @@ export const player1Reducer = createSlice({
   },
 });
 
-export const { setStepPlayer1, updateStepsPlayer1 } = player1Reducer.actions;
+export const { setStepPlayer1, updateStepsPlayer1, updateCurrentStepPlayer1 } =
+  player1Reducer.actions;
 
 export const selectStepsPlayer1 = (state: RootState) => state.player1_reducer;
 

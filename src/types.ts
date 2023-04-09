@@ -29,3 +29,8 @@ export interface HexRow {
   marginLeft?: string;
   hexagons: Hexagon[];
 }
+
+export interface IUpdateCurrentStepPlayer1 {
+  id: number;
+  connectedSteps: number;
+}

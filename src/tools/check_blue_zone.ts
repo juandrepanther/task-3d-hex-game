@@ -1,8 +1,11 @@
+import { updateCurrentStep } from "./../utils/updateCurrentStep";
 import { Action, Dispatch } from "@reduxjs/toolkit";
-import { updateStepsPlayer1 } from "../store/reducers/player1";
-import { ISteps, player } from "./../types";
-
-//red zone means that selected id is 1 and need to check closest hexes with id 2 and 7
+import {
+  updateCurrentStepPlayer1,
+  updateStepsPlayer1,
+} from "../store/reducers/player1";
+import { modifiedCloseHexes } from "../utils/modifiedCloseHexes";
+import { ISteps, player } from "../types";
 
 export const check_blue_zone = (
   id: number,
@@ -20,14 +23,9 @@ export const check_blue_zone = (
         step.id === id + 6
     );
 
-    const modifiedCloseHexes: ISteps[] = foundCloseHexes.map((closeHex) => {
-      return {
-        ...closeHex,
-        connections: closeHex.connections + 1,
-      };
-    });
+    dispatch(updateStepsPlayer1(modifiedCloseHexes(foundCloseHexes)));
 
-    dispatch(updateStepsPlayer1(modifiedCloseHexes));
+    updateCurrentStep(foundCloseHexes.length, dispatch, id);
   }
   //!TODO for player 2
   if (turn === player.two) {
