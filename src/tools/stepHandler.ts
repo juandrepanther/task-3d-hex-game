@@ -11,6 +11,8 @@ import { check_white_zone } from "./check_white_zone";
 import { check_purple_zone } from "./check_purple_zone";
 import { check_orange_zone } from "./check_orange_zone";
 import { check_green_zone } from "./check_green_zone";
+import { check_brown_zone } from "./check_brown_zone";
+import { check_rose_zone } from "./check_rose_zone";
 
 export const stepHandler = (
   id: number,
@@ -63,6 +65,16 @@ export const stepHandler = (
     if (checkNumberInRange(id)) {
       dispatch(setStepPlayer1({ id: id, connections: 0, player: player.one }));
       check_green_zone(id, turn, dispatch, stepsPlayer1, stepsPlayer2);
+    }
+
+    if (id === 12 || id === 18 || id === 24 || id === 30) {
+      dispatch(setStepPlayer1({ id: id, connections: 0, player: player.one }));
+      check_brown_zone(id, turn, dispatch, stepsPlayer1, stepsPlayer2);
+    }
+
+    if (id === 7 || id === 13 || id === 19 || id === 25) {
+      dispatch(setStepPlayer1({ id: id, connections: 0, player: player.one }));
+      check_rose_zone(id, turn, dispatch, stepsPlayer1, stepsPlayer2);
     }
   }
 

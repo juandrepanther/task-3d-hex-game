@@ -4,8 +4,6 @@ import { ISteps, player } from "../types";
 import { modifiedCloseHexes } from "../utils/modifiedCloseHexes";
 import { updateCurrentStep } from "../utils/updateCurrentStep";
 
-//red zone means that selected id is 1 and need to check closest hexes with id 2 and 7
-
 export const check_yellow_zone = (
   turn: string,
   dispatch: Dispatch<Action<any>>,

@@ -15,10 +15,12 @@
     "@react-three/fiber": "^8.12.0",
     "@reduxjs/toolkit": "^1.9.3",
     "@types/react-redux": "^7.1.25",
+    "@types/react-toastify": "^4.1.0",
     "@types/three": "^0.150.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
+    "react-toastify": "^9.1.2",
     "three": "^0.151.3"
   },
   "devDependencies": {

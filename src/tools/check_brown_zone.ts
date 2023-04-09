@@ -4,7 +4,7 @@ import { modifiedCloseHexes } from "../utils/modifiedCloseHexes";
 import { ISteps, player } from "../types";
 import { updateCurrentStep } from "../utils/updateCurrentStep";
 
-export const check_green_zone = (
+export const check_brown_zone = (
   id: number,
   turn: string,
   dispatch: Dispatch<Action<any>>,
@@ -14,10 +14,8 @@ export const check_green_zone = (
   if (turn === player.one) {
     const foundCloseHexes = stepsPlayer1.filter(
       (step) =>
-        step.id === id - 1 ||
-        step.id === id + 1 ||
         step.id === id - 6 ||
-        step.id === id - 5 ||
+        step.id === id - 1 ||
         step.id === id + 5 ||
         step.id === id + 6
     );

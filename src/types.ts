@@ -34,3 +34,15 @@ export interface IUpdateCurrentStepPlayer1 {
   id: number;
   connectedSteps: number;
 }
+
+export interface ICheckStepsWinner {
+  startIds: number[];
+  endIds: number[];
+  stepsStore: ISteps[];
+}
+
+export interface IResult {
+  isStartIdStep: boolean;
+  isEndIdStep: boolean;
+  isConnectionsAll: boolean;
+}

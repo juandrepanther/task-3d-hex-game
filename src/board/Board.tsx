@@ -2,8 +2,11 @@ import React from "react";
 import "../styles/App.css";
 import { data } from "./gameboardData";
 import Hex from "./Hex";
+import WinnerCheck from "./WinnerCheck";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-function App() {
+function Board() {
   return (
     <div className="App">
       <div id="gameboard">
@@ -19,8 +22,10 @@ function App() {
           </div>
         ))}
       </div>
+      <WinnerCheck />
+      <ToastContainer />
     </div>
   );
 }
 
-export default App;
+export default Board;
