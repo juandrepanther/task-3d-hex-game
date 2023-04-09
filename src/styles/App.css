@@ -1,8 +1,11 @@
+body {
+  padding: 2rem;
+}
+
 #gameboard {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
-  margin: 0 auto;
+  justify-content: center;
 }
 
 .hex-row {
@@ -22,4 +25,14 @@
   background-color: #ccc;
   margin: 0 10px 50px 10px;
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.player1 {
+  transition: 0.5s;
+  background-color: red;
+}
+
+.player2 {
+  transition: 0.5s;
+  background-color: green;
 }

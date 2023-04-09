@@ -1,17 +1,17 @@
-import { IPlayer_reducer, ISteps, IStepTurn, player } from "../../types";
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IStepTurn, player } from "../../types";
+import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
 const initialState: IStepTurn = {
-  turn: player.none,
+  turn: player.one,
 };
 
 export const stepTurn = createSlice({
   name: "stepTurn_reducer",
   initialState,
   reducers: {
-    setStepTurn: (state, action: PayloadAction<player>) => {
-      state.turn = action.payload;
+    setStepTurn: (state) => {
+      state.turn = state.turn === player.one ? player.two : player.one;
     },
   },
 });
