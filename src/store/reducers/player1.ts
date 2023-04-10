@@ -1,7 +1,7 @@
 import {
   IPlayer_reducer,
   ISteps,
-  IUpdateCurrentStepPlayer1,
+  IUpdateCurrentStepPlayer,
 } from "./../../types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
@@ -20,7 +20,7 @@ export const player1Reducer = createSlice({
 
     updateCurrentStepPlayer1: (
       state,
-      action: PayloadAction<IUpdateCurrentStepPlayer1>
+      action: PayloadAction<IUpdateCurrentStepPlayer>
     ) => {
       const { id, connectedSteps } = action.payload;
 

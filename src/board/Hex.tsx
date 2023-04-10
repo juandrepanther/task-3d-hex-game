@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import useCheckIdExists from "../hooks/useCheckIdExists";
 import { RootState } from "../store/store";
 import { stepHandler } from "../tools/stepHandler";
 import { Hexagon, player } from "../types";
@@ -16,9 +17,16 @@ function Hex({ id }: Hexagon) {
   );
 
   const styleHandler = () => {
-    if (turn === player.one) {
+    if (
+      turn === player.one &&
+      !useCheckIdExists(id, stepsPlayer1, stepsPlayer2)
+    ) {
       setIsSelected("player1");
-    } else {
+    }
+    if (
+      turn === player.two &&
+      !useCheckIdExists(id, stepsPlayer1, stepsPlayer2)
+    ) {
       setIsSelected("player2");
     }
   };

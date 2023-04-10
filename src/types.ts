@@ -30,7 +30,7 @@ export interface HexRow {
   hexagons: Hexagon[];
 }
 
-export interface IUpdateCurrentStepPlayer1 {
+export interface IUpdateCurrentStepPlayer {
   id: number;
   connectedSteps: number;
 }
@@ -39,10 +39,11 @@ export interface ICheckStepsWinner {
   startIds: number[];
   endIds: number[];
   stepsStore: ISteps[];
+  playerCheck: player;
 }
 
 export interface IResult {
   isStartIdStep: boolean;
   isEndIdStep: boolean;
-  isConnectionsAll: boolean;
+  isAtLeastOneConnectedInHexRow: boolean;
 }

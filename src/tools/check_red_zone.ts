@@ -17,9 +17,16 @@ export const check_red_zone = (
 
     dispatch(updateStepsPlayer1(modifiedCloseHexes(foundCloseHexes)));
 
-    updateCurrentStep(foundCloseHexes.length, dispatch, 1);
+    updateCurrentStep(foundCloseHexes.length, dispatch, 1, turn);
   }
   //!TODO for player 2
   if (turn === player.two) {
+    const foundCloseHexes = stepsPlayer2.filter(
+      (step) => step.id === 2 || step.id === 7
+    );
+
+    dispatch(updateStepsPlayer1(modifiedCloseHexes(foundCloseHexes)));
+
+    updateCurrentStep(foundCloseHexes.length, dispatch, 1, turn);
   }
 };

@@ -1,5 +1,6 @@
 import { Action, Dispatch } from "@reduxjs/toolkit";
 import { updateStepsPlayer1 } from "../store/reducers/player1";
+import { updateStepsPlayer2 } from "../store/reducers/player2";
 import { ISteps, player } from "../types";
 import { modifiedCloseHexes } from "../utils/modifiedCloseHexes";
 import { updateCurrentStep } from "../utils/updateCurrentStep";
@@ -19,9 +20,16 @@ export const check_white_zone = (
 
     dispatch(updateStepsPlayer1(modifiedCloseHexes(foundCloseHexes)));
 
-    updateCurrentStep(foundCloseHexes.length, dispatch, 31);
+    updateCurrentStep(foundCloseHexes.length, dispatch, 31, turn);
   }
   //!TODO for player 2
   if (turn === player.two) {
+    const foundCloseHexes = stepsPlayer2.filter(
+      (step) => step.id === 25 || step.id === 26 || step.id === 32
+    );
+
+    dispatch(updateStepsPlayer2(modifiedCloseHexes(foundCloseHexes)));
+
+    updateCurrentStep(foundCloseHexes.length, dispatch, 31, turn);
   }
 };

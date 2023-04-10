@@ -1,22 +1,24 @@
-import { player, ISteps } from "./../types";
+import { ISteps } from "./../types";
+
+// return true if exists
 
 const useCheckIdExists = (
   id: number,
-  turn: player,
   stepsPlayer1: ISteps[],
   stepsPlayer2: ISteps[]
-) => {
-  if (turn === player.one) {
-    const idExists = stepsPlayer1.some((item: ISteps) => item.id === id);
+): boolean => {
+  const idExistsPlayer1STepStore = stepsPlayer1.some(
+    (item: ISteps) => item.id === id
+  );
+  const idExistsPlayer2STepStore = stepsPlayer2.some(
+    (item: ISteps) => item.id === id
+  );
 
-    return idExists;
-  }
+  const checkResults = [idExistsPlayer1STepStore, idExistsPlayer2STepStore];
 
-  if (turn === player.two) {
-    const idExists = stepsPlayer2.some((item: ISteps) => item.id === id);
+  console.log(checkResults);
 
-    return idExists;
-  }
+  return checkResults.some((value) => value === true); // if any is true (means exists), return true
 };
 
 export default useCheckIdExists;

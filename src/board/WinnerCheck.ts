@@ -18,15 +18,27 @@ function WinnerCheck() {
 
   useEffect(() => {
     if (
-      turn === player.one &&
+      turn === player.two &&
       checkStepsWinner({
         startIds: [1, 2, 3, 4, 5, 6],
         endIds: [31, 32, 33, 34, 35, 36],
         stepsStore: stepsPlayer1,
+        playerCheck: player.one,
       })
     ) {
       toast.success("Player One has Won!");
-    } else {
+    }
+
+    if (
+      turn === player.one &&
+      checkStepsWinner({
+        startIds: [1, 7, 13, 19, 25, 31],
+        endIds: [6, 12, 18, 24, 30, 36],
+        stepsStore: stepsPlayer2,
+        playerCheck: player.two,
+      })
+    ) {
+      toast.success("Player Two has Won!");
     }
   }, [stepsPlayer1, stepsPlayer2, turn]);
 
